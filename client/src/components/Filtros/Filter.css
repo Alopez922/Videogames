@@ -1,0 +1,11 @@
+.Filter-Container{
+   display: flex;
+   margin-inline-start: 6%;
+}
+
+.ordenamiento{
+    padding-right: 4px;
+}
+.selectOrdenamiento{
+    padding-left: 0%;
+}
