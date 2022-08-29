@@ -1,9 +1,10 @@
-const {getApiInfo,getDbInfo,getAllVideoGames,getSingleVideoGame, videoGameToDb, }= require("./services")
+const {getApiInfo,getDbInfo,getAllVideoGames,getSingleVideoGame, videoGameToDb}= require("./services")
 
 
 //Minuto 50 de los videos de selene
 
 const getVideoGame =async(req,res)=>{
+    try{
         const name = req.query.name
         let videogamesTotal = await getAllVideoGames()
         if(name){
@@ -14,9 +15,13 @@ const getVideoGame =async(req,res)=>{
         }else{
             res.status(200).send(videogamesTotal)
         }
+    }catch(e){
+        return console.log(e)
+    }
     }
 
 const singleVideoGame=async(req,res)=>{
+    try{
     const id = req.params.id
     if(id.length <= 6){
         const found = await getSingleVideoGame(id)
@@ -29,18 +34,27 @@ const singleVideoGame=async(req,res)=>{
         return res.status(404).send("VideoGame Not Found")
     }
     return res.send(singleVideoGame)
+}catch(e){
+    return console.log(e)
+}
 }
 
+
+
 const postVideogame = async(req,res)=>{
+    try{
     const foundOrCreated = await videoGameToDb(req.body)
     if(!foundOrCreated){
         return res.status(400).send({message:"Videogame already exists"})
     }
         return res.status(201).send({message:"Videogame Created"})
+}catch(e){
+    return console.log(e)
+}
 }
 
 
 
 
 
-module.exports={getVideoGame,singleVideoGame,postVideogame}
+module.exports={singleVideoGame,postVideogame,getVideoGame}

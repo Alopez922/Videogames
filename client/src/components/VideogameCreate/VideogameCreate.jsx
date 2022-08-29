@@ -19,7 +19,7 @@ function validate(input){
         errors.name = "ReleaseDate is Required";
     }else if(!input.description){
         errors.name = "Description is Required"
-    }else if(input.genres.length < 1){
+    }else if(input.genres.length <= 1){
         errors.name = "Selecciona un genero"
     }if(input.platforms.length<1){
         errors.platforms = "Seleccion una Plataforma"
@@ -36,13 +36,13 @@ export default function VideogameCreate(){
     const genres = useSelector((state)=>state.genres)
     const platforms = useSelector((state)=>state.platforms)
     const [input,setInput]=useState({
-        name:"",
-        description:"",
-        releaseDate:"",
-        rating:"",
+        name:'',
+        description:'',
+        releaseDate:'',
+        rating:'',
         genres:[],
         platforms:[],
-        background_image: "",
+        background_image:'',
         
     })
 
@@ -50,21 +50,24 @@ export default function VideogameCreate(){
     
 
 function handleChange(e){
+    
     setInput({
         ...input,
         [e.target.name]:e.target.value
+        
     })
+  
     setErrors(validate({
         ...input,
         [e.target.name]:e.target.value
     }))
-    console.log(input)
+    
 }
 
 function handleSelect(e){
     setInput({
         ...input,
-        genres:[...new Set([...input.genres, e.target.value])],
+        genres:[...new Set([...input.genres,e.target.value])],
     })
     console.log(input)
 }
@@ -104,6 +107,7 @@ function handleSubmit(e){
         platforms:[],
         background_image: "",
     })
+    alert("JUEGO CREADO CON EXITO")
     history.push("/home")
 }
 
@@ -111,10 +115,20 @@ const [disableButton, setDisableButton]=useState(true)
 
 
     useEffect(() => {
-        
         dispatch(getPlatforms());
         dispatch(getGenres());
-       
+        if(input.name ===""||
+        input.genres.length<1||
+        input.description===""||
+        input.releaseDate===""||
+        input.platforms.length<1||
+        input.rating===""
+        )
+       {
+        setDisableButton(true)
+       }else{
+        setDisableButton(false)
+       }
         
       }, [errors,input,setDisableButton]);
 
@@ -128,7 +142,8 @@ const [disableButton, setDisableButton]=useState(true)
                     <input type="text"
                     className={errors.name && "danger"} 
                     name="name"
-                    defaultValue={input.name}
+                    // defaultValue={input.name}
+                    value={input.name}
                     onChange={handleChange} 
                     
                     />
@@ -156,9 +171,11 @@ const [disableButton, setDisableButton]=useState(true)
                 </div>
                 <div>  
                     <label>generos:</label>
-                    <select name="genres" onChange={(e)=>handleSelect(e)}>
-                        {genres.map((el)=>(
-                            <option value={el.name} key={el.id}>{el.name}</option>
+                    <select name="genres"  onChange={(e)=>handleSelect(e)}>
+                        {genres.map(el=>(
+                             
+                            <option defaultValue={el.name} key={el.name}>{el.name}</option>
+                            
                         ))}
                     </select>
                     </div>
@@ -168,7 +185,7 @@ const [disableButton, setDisableButton]=useState(true)
                                 <div className="lista" key={el}>
                                     
                                 {el}
-                                <button type="button" onClick={()=>handleDelete(el)}>X</button>
+                                <button type="button"  onClick={()=>handleDelete(el)}>X</button>
                                 </div>
                           
                             
@@ -197,7 +214,7 @@ const [disableButton, setDisableButton]=useState(true)
                             </div>
 
                 <div className="botones-ordenados">  
-        <button type="submit" onClick={(e)=>handleSubmit(e)}>Crear Videogame </button>
+        <button type="submit" onClick={(e)=>handleSubmit(e)} disabled={disableButton}>Crear Videogame </button>
         <Link to="/home">
         <button>Go Back</button>
         </Link>

@@ -3,6 +3,7 @@ const  {genresToBd} = require("./services")
 
 
 const getGenres = async(req,res)=>{
+    try{
     await genresToBd()
     let genres = await Genre.findAll()
 
@@ -14,6 +15,9 @@ const getGenres = async(req,res)=>{
         }
     })
     res.send(response)
+}catch(e){
+    return console.log(e)
+}
 
 }
 

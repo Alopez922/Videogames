@@ -5,6 +5,7 @@ const initialState = {
   genres: [],
   detail:[],
   platforms:[],
+  name:[],
   loading:true,
   
 };
@@ -96,6 +97,14 @@ function rootReducer(state = initialState, action) {
         detail:action.payload,
         loading:false
       }
+
+    // case "GET_BY_NAME":
+    //   return{
+    //     ...state,
+    //     name:action.payload,
+        
+    //   }
+    //la estoy probando
     
     case "SEARCH_VIDEOGAME":
       return{

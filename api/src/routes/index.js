@@ -1,7 +1,7 @@
 const { Router } = require('express');
 // const { getGenres } = require('../controllers/genres');
-const {getVideoGame,singleVideoGame,postVideogame} =require("../controllers/videogames")
-const {updateVideogame,deleteVideogame} = require  ("../controllers/services")
+const {singleVideoGame,postVideogame,getVideoGame} =require("../controllers/videogames")//getVideoGame
+const {updateVideogame,deleteVideogame,nombreVideogame} = require  ("../controllers/services")
 const {getGenres}=require("../controllers/genres");
 const {Platform} = require('../controllers/platforms');
 
@@ -13,6 +13,7 @@ router.put("/videogames/:id",updateVideogame)
 router.get(`/videogames/:id`,singleVideoGame)
 router.delete("/videogames/:id",deleteVideogame)
 router.get("/platforms",Platform)
+router.get("/videogames/name/:name",nombreVideogame)
 
 router.post("/videogames",postVideogame)
 router.get("/genres",getGenres),

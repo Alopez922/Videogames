@@ -5,7 +5,7 @@ import { filterRating, getVideoGames } from "../../actions";
 import "./Nav.css"
 export default function NavBar({orderByName,filterByGenres,filterByCreated,setCurrentPage,setOrden,orderByRating,filterByPlatform}){
     return(
-        <div> 
+        <div className="nav"> 
         <div className="SearchBar"> 
             <SearchBar setCurrentPage={setCurrentPage}/>
         </div>

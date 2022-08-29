@@ -1,11 +1,9 @@
-.detail-Container{
+/* .detail-Container{
+    
     background: fixed;
     background-size: 100%;
     background-image: url("https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80");
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding-top: 1%;
-    padding-bottom: 1%;
+  
 }
 
 
@@ -40,4 +38,75 @@
 }
 .button{
     background-color: aqua;
+}  */
+
+body{
+    background-image: url("https://fondosmil.com/fondo/65418.jpg");
 }
+
+
+.card-detail{
+    margin-top: 10px;
+    padding-left: 1%;
+    position: absolute;
+    width:500px;
+    height: 770px;
+    
+}
+
+.card-detail .frente h3{
+    position: absolute;
+    width:100%;
+    height: 45px;
+    line-height: 45px;
+    color:#fff;
+    background-color: rgba(190, 21, 21, 0.4);
+    text-align: center;
+}
+
+.card-detail h2{
+    color: white;
+}
+
+.card-detail .frente img{
+    width: 70%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.card-detail .foce{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card-detail .frente{
+box-shadow: 0 5px 10px rgb(231, 232, 231);
+}
+
+.image{
+    padding-top: 20%;
+}
+
+
+.description{
+    margin-left: 34%;
+    margin-right: 10%;
+    text-align:justify;
+    color: white;
+
+}
+
+.description h1{
+    text-align: center;
+    color: white;
+}
+
+
+
+

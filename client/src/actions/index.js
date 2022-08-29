@@ -65,6 +65,20 @@ export function getDetail(id){
    }
 }
 
+// export function getByName(name){
+//     return async function(dispatch){
+//         let json = await axios.get(`http://localhost:3001/name/${name}`);
+//         return dispatch({
+//             type:"GET_BY_NAME",
+//             payload:json.data
+//         })
+//     }
+// }
+//esta la estoy probando
+
+
+
+
 export function SearchVideogame(payload){
     return{
         type:"SEARCH_VIDEOGAME",
@@ -99,3 +113,4 @@ export function filterByPlatform(payload){
         payload:payload
     }
 }
+

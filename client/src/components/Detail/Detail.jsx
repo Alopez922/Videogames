@@ -20,40 +20,72 @@ export default function Detail(detalle){
     const videogame = useSelector((state)=>state.detail)
     return(
         
-        
-        <div className="detail-Container">
-           
-            
-        <div className="card-detail">
-       
-
-       {loading && <Loading/>}
-
-
-            <h1 className="Card-name">{videogame.name}</h1>
-            <img className="image" src={videogame.background_image} alt="Not Found" width="300px" heigth="250px" />
-            <h2 className="Card-name">Genres:</h2>
-            <h3 className="Card-name">{videogame.genres}</h3>
-            <h2 className="Card-name">Description:</h2>
-            <h5 className="Card-description">{videogame.description}</h5>
-            <h2 className="Card-name">Released:</h2>
-            <h3 className="Card-name">{videogame.released}</h3>
-            <h2 className="Card-name">Platforms:</h2>
-            <h3 className="Card-name">{videogame.platforms}</h3>
-            <h2 className="Card-name">Rating:</h2>
-            <h3 className="Card-name">{videogame.rating}</h3>
-                <div>
-                <Link to="/home">  
-                <button>Go Back</button>
-                </Link>
-                </div>
-
-            </div>
-            </div>
+<body>
     
+
+        
+       {loading && <Loading/>}
+            <div className="card-detail"> 
+            <div className="foce frente">
+            <h3>{videogame.name}</h3>
+            <div className="image">
+            <img src={videogame.background_image} alt="Not Found" />
+            </div>
+            <h2>Genres: {videogame.genres}</h2>
+            <h2>Released:    {videogame.released}</h2>
+            <h2>Rating:  {videogame.rating}</h2>
+            <h2>Platforms: <p>{videogame.platforms} </p></h2>
+                <Link to= "/home">
+                    <button>Back</button>
+                </Link>
+
+            </div>
+            </div>
+
+            <div className="description">
+                <h1>Description</h1>
+                <h3><p>{videogame.description}</p></h3>
+            </div>
+         
+            
+</body>
+                   
+            
+      
+  
+  
             
        
      
     )
 }
 
+{/* <div className="detail-Container">
+           
+            
+<div className="card-detail">
+
+
+{loading && <Loading/>}
+
+
+    <h1>{videogame.name}</h1>
+    <img className="image" src={videogame.background_image} alt="Not Found" width="300px" heigth="250px" />
+    <h2>Genres:</h2>
+    <h3>{videogame.genres}</h3>
+    <h2>Description:</h2>
+    <h5 className="Card-description">{videogame.description}</h5>
+    <h2>Released:</h2>
+    <h3>{videogame.released}</h3>
+    <h2>Platforms:</h2>
+    <h3>{videogame.platforms}</h3>
+    <h2>Rating:</h2>
+    <h3>{videogame.rating}</h3>
+        <div>
+        <Link to="/home">  
+        <button>Go Back</button>
+        </Link>
+        </div>
+
+    </div>
+    </div> */}

@@ -46,9 +46,9 @@ export default function Home() {
   
   return (
     <div className="Home-container">
-      
+      <div>  
 <h1 className="Titulo-Home">Video Games</h1>
-   
+      </div>
 <div className="NavBar"> 
 <NavBar setCurrentPage={setCurrentPage} orderByName={orderByName} orderByRating={orderByRating} filterByCreated ={filterByCreated}filterByGenres ={filterByGenres} setOrden={setOrden} filterRating={filterRating} filterByPlatform={filterByPlatform}  />
 </div>

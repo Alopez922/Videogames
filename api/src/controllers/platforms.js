@@ -14,12 +14,16 @@ const {getPlatforms} = require ("./services")
 // }
 
 const Platform = async(req,res)=>{
+    try{
     let allPlatforms= await getPlatforms()
     if(!allPlatforms){
         return res.status(404).send("no existe la plataforma")
     }else{
         res.status(200).send(allPlatforms)
     }
+}catch(e){
+    return console.log(e)
+}
 }
 
 
