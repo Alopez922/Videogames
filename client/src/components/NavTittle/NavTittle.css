@@ -1,0 +1,23 @@
+.nav-container{
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  box-shadow: 1px 1px 3px rgb(63, 63, 63);
+  color: #fffeff;
+  font-weight: 800;
+  background-Color: rgba(128, 0, 128, 0.5);
+}
+
+.span-title{
+  color: white;
+}
+.animated-button {
+  background: transparent;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+}
+

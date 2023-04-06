@@ -1,8 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import "./Filter.css"
+import { Form, Button } from 'react-bootstrap';
 
 export default function Filters({orderByName,filterByGenres,filterByCreated,setCurrentPage,setOrden,getVideoGames,orderByRating,filterRating,filterByPlatform}){
 
@@ -17,18 +16,9 @@ export default function Filters({orderByName,filterByGenres,filterByCreated,setC
         setCurrentPage(1)
       }
     
-    function handleFilterPlatforms(e){
-      e.preventDefault()
-      dispatch(filterByPlatform(e.target.value))
-      setCurrentPage(1)
-      
-    }
+   
     
-      function handleFilteRating(e){
-        e.preventDefault()
-        dispatch(filterRating(e.target.value))
-        setCurrentPage(1)
-      }
+     
 
       function handleSort(e){
         e.preventDefault();
@@ -62,76 +52,54 @@ export default function Filters({orderByName,filterByGenres,filterByCreated,setC
 
 
       return (
-        <div className="Filter-Container">
-             
-             <div className="ordenamiento"> 
-             <select className="selectOrdenamiento" onChange={e=>{handleSort(e)}}>
-          <option value="asc">Ascendente</option>
-          <option value="desc">Descendente</option>
-            </select>
-            </div>
-    
-            <div> 
-        <select onChange={e => handleFilterPlatforms(e)}>
-          {
-          allPlatforms.map ((el)=>(
-            <option value={el} key={el}>{el}</option>
-          ))
-          }
-        </select>
-        </div>
-          {/* este es el filtro que estoy probando */}
-        <div> 
-        <select onChange={e => handleFilterGenres(e)}>
-          {
-          allGenres.map ((el)=>(
-            <option value={el.name} key={el.name}>{el.name}</option>
-          ))
-          }
-        </select>
-        </div>
-
-        <div>
-          <select onChange={e=> handleFilteRating(e)}>
-          <option value="All">All Rating</option>
-          <option value="3.90">Rating Menor a 3.90</option>
-          <option value="4.00">Rating Mayor a 4.00</option>
-          </select>
-        </div>
-
-          <div>
-            <select onChange={e=>{handleSortRating(e)}}>
-              <option value="Mayor">Ordenar de Mayor a Menor Rating</option>
-              <option value="Menor">Ordenar de Menor a MayorRating</option>
-            </select>
+        <div className="Filter-Container d-flex flex-wrap justify-content-center align-items-center">
+          <div className="ordenamiento"> 
+          <label> Sort asc -desc </label>
+            <Form.Select className="selectOrdenamiento" onChange={e => {handleSort(e)}}>
+              <option value="asc">Ascendente</option>
+              <option value="desc">Descendente</option>
+            </Form.Select>
           </div>
-
-
-          <div> 
-        <select onChange={e=>handleFilterByCreated(e)}>
-          <option value="All">All</option>
-          <option value="Created">Created</option>
-          <option value="Api">Api</option>
-        </select>
-          </div>
-          <div> 
-        <button onClick={(e) => { handleClick(e);}}>
-        volver a cargar videojuegos
-        </button>
-
-          
-
-
-        <Link to="/create"> 
-            <button>
-            Crear videojuego
-            </button>
-            </Link>
-        </div>
-        </div>
-
-        
-      )
-
       
+          <div className="filtro-genero">
+            <label> Genre </label>
+            <Form.Select className="filter-genre" onChange={e => handleFilterGenres(e)}>
+              {allGenres.map((el) => (
+                <option value={el.name} key={el.name}>{el.name}</option>
+              ))}
+            </Form.Select>
+          </div>
+      
+          <div className="ordenamiento-rating"> 
+                  <label> Rating</label>
+            <Form.Select className="Rating"  onChange={e => {handleSortRating(e)}}>
+              <option value="Menor">Rating Menor</option>
+              <option value="Mayor">Rating Mayor</option>
+            </Form.Select>
+          </div>
+      
+          <div className="filtro-creacion"> 
+          <label> Games Created/Api </label>
+            <Form.Select className="Filter-created" onChange={e => handleFilterByCreated(e)}>
+              <option value="All">All</option>
+              <option value="Created">Created</option>
+              <option value="Api">Api</option>
+            </Form.Select>
+          </div>
+      
+          <div className="volver-a-cargar w-100"> 
+            <Button onClick={e => handleClick(e)} className="btn-custom">
+              VideoGames
+            </Button>
+          </div>
+        </div>
+      );
 }
+
+
+
+
+
+
+
+

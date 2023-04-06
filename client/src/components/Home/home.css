@@ -1,35 +1,45 @@
-.Home-container{
-   
+* {
+    box-sizing: border-box;
+  }
+  
+  .Home-container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 30px;
+  }
+  
+  .card-container .col {
+    flex-basis: calc(33.33% - 10px);
+    margin-bottom: 20px;
+  }
+  
+  @media screen and (max-width: 880px) {
+    .card-container .col {
+      flex-basis: calc(50% - 10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     
-    /* https://thumbs.dreamstime.com/b/fondo-con-estilo-negro-oscuro-del-horror-de-la-ilustraci%C3%B3n-textura-metal-oxidado-viejo-una-pared-imitaci%C3%B3n-sangre-manchada-151211642.jpg */
-    background-image: url("https://fondosmil.com/fondo/65418.jpg");
-    /* background-image: url("https://img.freepik.com/vector-premium/fondo-transparente-videojuegos_6997-1230.jpg?w=1060"); */
-    padding-top: 1%;
-    background-size:  100% 100%  ;
-}
-
-
-.positions {
+  }
+  
+  @media screen and (max-width: 576px) {
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     
-    display: grid;
-    justify-items:center;
-    grid-template-columns: repeat(3, 2fr); 
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    position: sticky;
-    margin-top: 3ex;
-    padding-bottom: 14.9%;
-   
-} 
-
-.botones{
-    align-items: center;
-    padding-right: 10px;
-}
-
-.Titulo-Home{
-    color: white;
-}
-
-
-
+    .card-container .col {
+      flex-basis: 100%;
+    }
+  }

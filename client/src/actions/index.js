@@ -31,6 +31,14 @@ export function getPlatforms(){
     }
 }
 
+export function clear(){
+        return{
+            type:"CLEAR",
+            payload:[]
+        }
+    }
+
+
 
 
 

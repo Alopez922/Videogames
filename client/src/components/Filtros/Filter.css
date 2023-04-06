@@ -1,11 +1,47 @@
-.Filter-Container{
-   display: flex;
-   margin-inline-start: 6%;
+.Filter-Container div {
+    margin: 10px;
+  }
+
+ .selectOrdenamiento{
+    border-radius: 10px;
+    border: solid 2px #9400D3;
+    background-color: #E9AFE7;
+ } 
+
+.filter-genre{
+  display: flex;
+  flex-direction: column;
+    border-radius: 10px;
+    border: solid 2px #9400D3;
+    background-color: #E9AFE7;
+
 }
 
-.ordenamiento{
-    padding-right: 4px;
-}
-.selectOrdenamiento{
-    padding-left: 0%;
-}
+  .Rating{
+    border-radius: 10px;
+    border: solid 2px #9400D3;
+    background-color: #E9AFE7;
+
+  }
+
+  .filtro-creacion{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Filter-created{
+    border-radius: 10px;
+    border: solid 2px #9400D3;
+    background-color: #E9AFE7;
+
+  }
+
+  .ordenamiento-rating{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ordenamiento{
+    display: flex;
+    flex-direction: column;
+  }

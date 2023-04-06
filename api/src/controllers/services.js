@@ -33,7 +33,7 @@ const getApiInfo = async()=>{
 
     await Promise.all([axios.get(apiUrl+1),axios.get(apiUrl+2),axios.get(apiUrl+3)])
     .then((responses)=>{
-    apiData=responses[0].data.results.concat(responses[1].data.results.concat).concat(responses[2].data.results)
+    apiData=responses[0].data.results.concat(responses[1].data.results).concat(responses[2].data.results)
 
     })
     return apiData.map((videojuego)=>({

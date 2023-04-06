@@ -1,61 +1,33 @@
-.background {
-    /* background: url("https://images.wallpaperscraft.com/image/single/dog_husky_look_spotted_muzzle_40227_1280x720.jpg"); */
-    /* background:url("http://oyster.ignimgs.com/wordpress/stg.ign.com/2020/01/Kratos.jpg"); */
-    /* background: url("https://p4.wallpaperbetter.com/wallpaper/254/737/240/video-games-collage-wallpaper-preview.jpg"); */
-    background: url("https://s3.amazonaws.com/pbblogassets/uploads/2020/08/05070749/Recording-video-games-on-PC.jpg");
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: block;
-    justify-content:center;
-    align-items: center;
-    border: 0;
+.landing-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  
 }
 
-.button {
-    padding: 2px 100px;
-    padding-left: 2%;
-    padding-right: 2%;
-    
+.landing-container img{
+  width: 100%;
+}
+.banner-container{
+  width: 100%;
+  height: 100%;
+}
 
-    margin-top: 70ex;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
+.footer-landing{
+  display: flex;
+  justify-content:end;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  
+}
 
-    background: rgb(250, 250, 250); /* color de fondo */
-    color: #020114; /* color de fuente */
-    border: 2px solid #1d6189; /* tamaño y color de borde */
-   
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    display: inline-block;
-  }
-  .button:before, .button:after {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    top: 0;
-    left: -50%;
-    background-color: #000000; /* color de fondo hover */
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }
-  .button:after {
-    left: 100%;
-  }
-  .button:hover {
-    color: #fff; /* color de fuente hover */
-  }
-  .button:hover:before {
-    left: 0;
-  }
-  .button:hover:after {
-    left: 50%;
-  }
+.button-landing{
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  left: 5%;
+  top:55%;
+}
+

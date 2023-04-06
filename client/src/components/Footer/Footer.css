@@ -1,0 +1,12 @@
+.footer-container{
+    display: flex;
+    justify-content: center;
+    box-shadow: 2px 2px 3px rgb(247, 247, 247);
+    background-color: #E9AFE7;
+    font-weight: 800;
+    padding: 50px;
+    width: 100%;
+    color: black;
+    bottom: 0;
+    
+}

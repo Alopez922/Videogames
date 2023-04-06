@@ -107,10 +107,13 @@ function rootReducer(state = initialState, action) {
     //la estoy probando
     
     case "SEARCH_VIDEOGAME":
-      return{
+      const filteredGames = state.allvideogames.filter((game) => game.name.toLowerCase().trim().includes(action.payload.toLowerCase().trim()));
+      return {
         ...state,
-        videogames:state.allvideogames.filter((game)=>game.name.toLowerCase().trim().includes(action.payload.toLowerCase().trim()))
-      }
+        videogames: filteredGames,
+        gameNotFound: filteredGames.length === 0 ? true : false,
+        message: filteredGames.length === 0 ? "Game not found" : "",
+      };
 
     case "FILTER_BY_CREATED":
       return{
@@ -158,6 +161,12 @@ function rootReducer(state = initialState, action) {
     case "CREATE_VIDEOGAMES":
       return{
         ...state,
+      }
+    
+    case "CLEAR":
+      return{
+        ...state,
+        detail:[]
       }
     
 
