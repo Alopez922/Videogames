@@ -3,9 +3,8 @@ import {BrowserRouter ,Route,Switch} from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage.jsx";
 import Home from "./components/Home/Home.jsx"
 import Detail from './components/Detail/Detail';
-import VideogameCreate from './components/VideogameCreate/VideogameCreate';
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3001/"
+axios.defaults.baseURL = "https://bestgamer.onrender.com/"
 
 
 function App() {
