@@ -6,6 +6,7 @@ import NavTittle from "../NavTittle/NavTittle";
 import bannergame from "../Assets/wallpaper.jpg"
 import Banner from "../Banner/Banner"
 import Footer from "../Footer/Footer"
+import wallpaper from "../Assets/wallpaper.jpg"
 
 export default function LandingPage() {
     const history = useHistory()
@@ -13,10 +14,19 @@ export default function LandingPage() {
     const handleStart=()=>{
         history.push("/home")
     }
+   
 
   return (
- 
+
       <div className="landing-container">
+                <div className="image-container">
+                <img src={wallpaper} alt="" width="100%" height="630px" />
+                <div className="text">
+            <h1>Do you want play ?</h1>
+            <h3>Find your favorite game now!</h3>
+            </div>
+                </div>
+
         <div className="button-landing">
         <Button onClick={handleStart} variant="primary" >
             Game Start
@@ -25,20 +35,17 @@ export default function LandingPage() {
       
 
       <NavTittle/>
-      
-      <div className="banner-container">
-        <Banner/>
+{/*       
+      <Banner/> */}
+
         
-      
-      </div>
+        <div className="footer-landing">
+        <Footer/>
 
-      <div className="footer-landing">
-      <Footer/>
+        </div>
 
-      </div>
+</div>
       
-     </div>
-       
   
   );
 }
